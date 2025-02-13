@@ -8,13 +8,15 @@ msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
 
 # Choose a mail server (e.g. Google mail server) and call it mailserver
-#mailserver = ('smtp.conncoll.edu', 25)
-mailserver = ('136.244.170.59', 25)
+serverName = "smtp.conncoll.edu"
+serverPort = 25
 
 # Create socket called clientSocket and establish a TCP connection with mailserver
 clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect(mailserver)
 
+
+####################################################################################
 recv = clientSocket.recv(1024).decode()
 print(recv)
 if recv[:3] != '220':
@@ -27,6 +29,14 @@ recv1 = clientSocket.recv(1024).decode()
 print(recv1)
 if recv1[:3] != '250':
     print('250 reply not received from server.')
+####################################################################################
+
+
+
+
+
+
+
 
 # Send MAIL FROM command and print server response.
 mailFromCommand = 'MAIL FROM: <rkosovsky@conncoll.edu>\r\n'
