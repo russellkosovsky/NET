@@ -13,7 +13,7 @@ serverPort = 25
 
 # Create socket called clientSocket and establish a TCP connection with mailserver
 clientSocket = socket(AF_INET, SOCK_STREAM)
-clientSocket.connect(mailserver)
+clientSocket.connect(serverName, serverPort)
 
 
 ####################################################################################
@@ -30,10 +30,6 @@ print(recv1)
 if recv1[:3] != '250':
     print('250 reply not received from server.')
 ####################################################################################
-
-
-
-
 
 
 
